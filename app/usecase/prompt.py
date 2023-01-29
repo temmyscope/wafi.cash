@@ -4,8 +4,8 @@ def invalid_prompt():
 
 def resp_prompt():
   print("\nTo Continue, Enter 1, To go Back, Enter Any Other Key")
-  res = input("Enter Prompt Response: ")
-  if res == 1:
+  res = input("Enter Prompt: ")
+  if res == 1 or res == '1':
     return 1
   else:
     return 0

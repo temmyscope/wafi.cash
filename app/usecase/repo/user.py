@@ -9,7 +9,7 @@ def create_account(email: str, name: str) -> bool:
     return False
   else:
     print("\n-------------------------------------------------\n")
-    USER_DATABASE[email] = {"balance": 0, "name": name, "email": email}
+    USER_DATABASE[email] = {"balance": 0, "name": name}
     print("Account Created...\n")
     return True
 

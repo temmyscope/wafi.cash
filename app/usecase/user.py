@@ -9,13 +9,15 @@ def sign_up():
   print("""Sign Up To Wafi Cash \n""")
   name = str(input("Enter Your name: "))
   print("\n")
-  email = str(input("Enter Your Email: "))
+  email = str(input("Enter Your Email: ")).lower()
   print("\n-------------------------------------------------\n")
   
   if resp_prompt() == 1:
     if create_account(email, name):
+      print("\nYour Account has been created✨ Successfully✅\n")
       return onboard_user()
     else:
+      print("\nAccount Creation Failed🛑\n")
       return sign_up()
   else:
     return onboard_user()
@@ -43,13 +45,18 @@ def login():
         1. To Continue To Login Screen, 2. Go back to Home, Enter Any Other Key To Exit
         """
       )
-      promptInput = int(input())
-      if promptInput == 1:
+      promptInput = input("Enter Prompt: ")
+      if promptInput == 1 or promptInput == '1':
         return login()
-      elif promptInput == 2:
+      elif promptInput == 2 or promptInput == '1':
         return onboard_user()
+      else:
+        print("\n-------------------------------------------------\n")
+        print("Sad To See You Go👋🏼✌🏽")
+        print("\n-------------------------------------------------\n")
+        return  os._exit(0)
   else:
-    return
+    return onboard_user()
 
 def onboard_user():
   print("\n-------------------------------------------------\n")
@@ -60,13 +67,16 @@ def onboard_user():
     Enter Any Other Key To Exit
     """
   )
-  promptInput = int(input())
+  promptVal = input("Enter Prompt: ")
 
-  if promptInput == 1:
+  if promptVal == 1 or promptVal == '1':
     sign_up()
-  elif promptInput == 2:
+  elif promptVal == 2 or promptVal == '2':
     login()
   else:
+    print("\n-------------------------------------------------\n")
+    print("Sad To See You Go👋🏼✌🏽")
+    print("\n-------------------------------------------------\n")
     return os._exit(0)
 
 def account_dashboard(email: str):
@@ -134,6 +144,9 @@ def account_dashboard(email: str):
       return account_dashboard(email)
 
   elif response == "5":
+    print("\n-------------------------------------------------\n")
+    print("Signing Out🔌... Goodbye👋🏼✌🏽")
+    print("\n-------------------------------------------------\n")
     return onboard_user()
   else:
     invalid_prompt()
