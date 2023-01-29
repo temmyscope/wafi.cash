@@ -2,6 +2,11 @@
 
 - Requirements: python3
 
+### Set Up
+```sh
+git clone https://github.com/temmyscope/wafi.cash.git
+```
+
 ### Run Code
 ```sh
 python3 main.py
